@@ -18,3 +18,14 @@ function areObjectsEqual(obj1, obj2) {
     return true;
 }
 console.log(areObjectsEqual(obj1, obj2));
+
+//use the rest countries
+var  resquest = new XMLHttpRequest();
+resquest.open("GET","https://restcountries.com/v3.1/all");
+resquest.send();
+resquest.onload = function(){
+var res= JSON.parse(resquest.response);
+console.log(res);
+var details_countries = res.filter((ele)=>ele.region == "countries");
+console.log(details_countries);
+}
